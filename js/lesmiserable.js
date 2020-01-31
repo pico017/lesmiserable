@@ -24,7 +24,7 @@ $(function(){
     // quick-menu
     $(document).ready(function() {
       //페이지 첫 로딩시 메뉴의 위치  
-      $(".quick_div").animate( { "top": $(document).scrollTop() + 50 +"%" }, 100 ); // 빼도 된다.
+      $(".quick_div").animate( { "top": $(document).scrollTop() + 50 +"%" }, 100 );
       //스크롤 이벤트가 일어났을때 실행하는 함수
       $(window).scroll(function(){
       $(".quick_div").stop();
