@@ -85,6 +85,8 @@ header nav .gnb .sub{
 /* 퀵메뉴 ======================================================= */
 .section1 .quick_div {
    position: absolute;
+   top:50%;
+   transform: translateY(-50%);
    right: 150px;
    width: 60px;
    background: #101010;

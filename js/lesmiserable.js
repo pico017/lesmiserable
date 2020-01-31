@@ -18,22 +18,29 @@ $(function(){
           prevEl: '.main-slide .swiper-prev',
       },
       loop:true, 
-      autoplay:true,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
     });
 
-    // quick-menu
-    $(document).ready(function() {
-      //페이지 첫 로딩시 메뉴의 위치  
-      $(".quick_div").animate( { "top": $(document).scrollTop() + 50 +"%" }, 100 );
-      //스크롤 이벤트가 일어났을때 실행하는 함수
-      $(window).scroll(function(){
-      $(".quick_div").stop();
+    // quick-menu    
+    //페이지 첫 로딩시 메뉴의 위치  
+    // $(".quick_div").animate( { "top": '50%' }, 100 ); // 빼도 된다.
+    
+    //스크롤 이벤트가 일어났을때 실행하는 함수
+    $(window).scroll(function(){      
       //스크롤 이벤트가 일어났을때 스크롤의 위치를 알아내서 이동
-      $(".quick_div").animate( { "top": $(document).scrollTop() + 400 + "px" }, 1000 );
-      });
-     });
-
-     
+      $(".quick_div").stop().animate( { "margin-top": $(document).scrollTop()+"px" }, 1000 );
+    });    
+    
+    //퀵메뉴 버튼 누를 때 해당 영역으로 스크롤 이동 
+    $('.quick_div button').click(function () { 
+      var selector=$(this).data('position');      
+      $('html, body').animate({
+        scrollTop:$(selector).offset().top
+      })
+    });
 
     // about 
     var aboutSwiper = new Swiper('.synopsys .swiper-container', {
@@ -134,7 +141,6 @@ $(function(){
       pagination: {
         el: '.media .swiper-pagination',
         type: 'fraction',
-        clickable: true,
         formatFractionCurrent:function(number){
           $('.media .control .page').text(number);
           return '0'+ number;          
