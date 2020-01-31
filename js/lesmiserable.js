@@ -77,6 +77,8 @@ $(function(){
       e.preventDefault();      
       $('.cast .tab-nav a').removeClass();
       $(this).addClass('active');
+      $('.cast .swiper-wrapper').fadeOut(300);
+      $('.cast .swiper-wrapper').fadeIn(300);
       var index=$('.cast .tab-nav a').index(this);  
 
       if(castSwiper!=undefined){
